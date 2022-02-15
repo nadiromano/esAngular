@@ -1,0 +1,17 @@
+<div class="container" *ngFor="let user of users; let i = index">
+  <div class="col-3">
+    <div class="row">
+      <div class="box">
+        <p>{{ i + 1 }}</p>
+        <img
+          style="max-height: 80px"
+          [src]="user.profilePhotoUrl"
+          [alt]="user.name"
+        />
+        <h4>{{ user.name + user.surname }}</h4>
+        <p>{{ user.age }}</p>
+        <p>{{ user.address.city }}</p>
+      </div>
+    </div>
+  </div>
+</div>
