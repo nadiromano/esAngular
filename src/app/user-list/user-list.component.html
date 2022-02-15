@@ -1,1 +1,9 @@
-<app-user-single [users]="users"></app-user-single>
+<app-user-single
+  *ngIf="users.length > 0; else noUsers"
+  [users]="users"
+  (deleted)="deleteComponent($event)"
+></app-user-single>
+
+<ng-template #noUsers>
+  <p>Non ci sono più utenti</p>
+</ng-template>

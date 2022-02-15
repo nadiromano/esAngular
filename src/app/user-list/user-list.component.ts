@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Gender, Role, User } from '../models/User';
 
 @Component({
@@ -61,4 +62,11 @@ export class UserListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  deleteComponent(user: User) {
+    let id;
+    id = (element: User) => element.id === user.id;
+    const idSelected = this.users.findIndex(id);
+    this.users.splice(idSelected, 1);
+  }
 }
