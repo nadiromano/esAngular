@@ -1,4 +1,12 @@
-<div class="container" *ngFor="let user of users; let i = index">
+<div
+  class="container border my-1 w-50"
+  *ngFor="let user of users; let i = index"
+  [ngClass]="{
+    'border-danger': user.role === 'staff',
+    'border-info': user.role === 'manager',
+    'border-warning': user.role === 'admin'
+  }"
+>
   <div class="col-3" *ngIf="user">
     <div class="row">
       <div class="box">
@@ -16,3 +24,10 @@
     </div>
   </div>
 </div>
+
+<!-- {
+  'border border-primary': user.role === 'staff',
+  'border border-secondary': user.role === 'student',
+  'border border-danger': user.role === 'manager',
+  'border border-info': user.role === 'admin'
+} -->
