@@ -20,6 +20,14 @@
         <p>{{ user.age }}</p>
         <p>{{ user.address.city }}</p>
         <div class="btn btn-danger" (click)="deleteUser(user)">Elimina</div>
+        <div class="btn btn-info" (click)="selectedUser(user)">Dettagli</div>
+      </div>
+      <div class="box" *ngIf="userSelected === user">
+        <p>
+          {{ user.address.city }} {{ user.address.postalCode }}
+          {{ user.address.street }}
+        </p>
+        <div class="btn btn-danger" (click)="deleteSelected()">X</div>
       </div>
     </div>
   </div>

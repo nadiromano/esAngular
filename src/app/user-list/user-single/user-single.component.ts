@@ -16,6 +16,7 @@ import { User } from 'src/app/models/User';
 export class UserSingleComponent implements OnInit {
   @Input() users: User[] = [];
   @Output() deleted = new EventEmitter<User>();
+  userSelected?: User;
 
   constructor() {}
 
@@ -23,5 +24,12 @@ export class UserSingleComponent implements OnInit {
 
   deleteUser(user: User) {
     this.deleted.emit(user);
+  }
+  selectedUser(user: User) {
+    this.userSelected = user;
+  }
+
+  deleteSelected() {
+    this.userSelected = undefined;
   }
 }
